@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-hero',
@@ -6,16 +6,11 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
   styleUrls: ['./hero.component.scss']
 })
 export class HeroComponent implements OnInit, AfterViewInit {
-  @ViewChild('parallax') parallax; 
   styleBackgroundPosition: string = '0px';
 
-  constructor() { 
+  constructor() {}
 
-  }
-
-  ngOnInit(): void {
-    this.styleBackgroundPosition='';
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     window.addEventListener('scroll', () => {
@@ -23,8 +18,6 @@ export class HeroComponent implements OnInit, AfterViewInit {
       let offset = window.pageYOffset;
       this.styleBackgroundPosition = (offset * multiplier).toString() + 'px';
     });
-    console.log(this.parallax);
   }
-
 
 }
