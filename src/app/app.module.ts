@@ -9,6 +9,7 @@ import { IntroductionComponent } from './components/introduction/introduction.co
 import { ImageStationaryComponent } from './components/image-stationary/image-stationary.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MainNavComponent } from './components/main-nav/main-nav.component';
+import { ParallaxOneDirective } from './directives/parallax-one.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MainNavComponent } from './components/main-nav/main-nav.component';
     IntroductionComponent,
     ImageStationaryComponent,
     FooterComponent,
-    MainNavComponent
+    MainNavComponent,
+    ParallaxOneDirective
   ],
   imports: [
     BrowserModule,
