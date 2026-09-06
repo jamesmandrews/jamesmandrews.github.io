@@ -230,6 +230,37 @@ a:focus-visible {
   color: var(--ink-soft);
 }
 
+/* Text and a portrait photo will never be the same height. Rather than crop
+   the loaf to force it, the image column is narrow and the frame is whole. */
+.bread {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 19rem);
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+@media (max-width: 46rem) {
+  .bread { grid-template-columns: 1fr; }
+  .shot { max-width: 19rem; }
+}
+
+.shot {
+  margin: 0;
+  border: 1px solid var(--edge);
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--sunk);
+}
+
+.shot img {
+  display: block;
+  width: 100%;
+  /* Square. The loaf fills ~91% of the height of any landscape crop of this
+     photo, so only a squarer frame leaves margin around it. */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
 /* A single card shouldn't stretch to the width of two. */
 .card.wide { max-width: 34rem; }
 .card.wide img { aspect-ratio: 10 / 6; object-position: center; }
@@ -258,7 +289,7 @@ a:focus-visible {
 /* ---------- contact ---------- */
 
 .contact { padding-bottom: clamp(4rem, 9vh, 6rem); }
-.contact p { max-width: 42ch; margin: 0 0 1.5rem; }
+.contact p { max-width: none; margin: 0 0 1.5rem; }
 
 .mail {
   font-family: var(--display);
@@ -315,7 +346,7 @@ footer a:hover { color: var(--accent); }
         since the mid-2000s.</span>
       </p>
       <p class="sub">
-        Self-taught at all three. It&rsquo;s been the same habit every time &mdash; get
+        Mostly self-taught. It&rsquo;s been the same habit every time &mdash; get
         curious, build the thing badly, keep at it until it isn&rsquo;t bad.
       </p>
     </div>
@@ -426,6 +457,32 @@ footer a:hover { color: var(--accent); }
           </p>
         </div>
       </a>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divide"></div></div>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Bread</p>
+      <h2>The one thing somebody actually taught me.</h2>
+
+      <div class="bread">
+        <div>
+          <p class="aside">
+            I started taking classes at ABC Cooking Studio here in Japan in 2018, and
+            in 2021 I passed the license exams &mdash; practical and written, in
+            Japanese. That came with a small plaque with my name on it, and technically
+            means I could teach there. I don&rsquo;t. I still take classes though, and
+            there&rsquo;s usually one on the calendar &mdash; new recipes, mostly. I
+            just want to keep getting better at it.
+          </p>
+        </div>
+
+        <figure class="shot">
+          <img src="img/bread.jpg" alt="A round cocoa loaf on a cooling rack, dusted with flour and deeply scored in a radiating pattern.">
+        </figure>
+      </div>
     </div>
   </section>
 
