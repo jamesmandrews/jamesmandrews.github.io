@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>James Andrews</title>
+<meta name="description" content="James Andrews has been building web applications since 1996 — a regional ISP, agency work for retailers you've heard of, a startup he co-founded, and a SaaS platform he built the first version of.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --paper:      #fafaf8;
+  --sunk:       #f1f1ed;
+  --ink:        #15181f;
+  --ink-soft:   #565e70;
+  --accent:     #16665a;
+  --edge:       rgba(21, 24, 31, 0.11);
+  --rule:       rgba(21, 24, 31, 0.20);
+
+  --display: "Bricolage Grotesque", system-ui, sans-serif;
+  --body:    "IBM Plex Sans", system-ui, sans-serif;
+  --mono:    "IBM Plex Mono", ui-monospace, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:    #101319;
+    --sunk:     #171b23;
+    --ink:      #e9ebf0;
+    --ink-soft: #98a1b4;
+    --accent:   #5fbfa9;
+    --edge:     rgba(233, 235, 240, 0.14);
+    --rule:     rgba(233, 235, 240, 0.24);
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 3.5rem);
+}
+
+a { color: inherit; }
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.73rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 1.1rem;
+}
+
+/* ---------- hero ---------- */
+
+.hero { padding: clamp(4rem, 11vh, 7.5rem) 0 0; }
+
+.hero h1 {
+  font-family: var(--display);
+  font-variation-settings: "opsz" 96;
+  font-weight: 700;
+  font-size: clamp(2.75rem, 9vw, 5.75rem);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  margin: 0;
+}
+
+.hero .lede {
+  font-size: clamp(1.2rem, 2.6vw, 1.65rem);
+  line-height: 1.4;
+  max-width: 28ch;
+  margin: 1.6rem 0 0;
+  letter-spacing: -0.012em;
+}
+
+.hero .lede .turn { color: var(--ink-soft); }
+
+.hero .sub {
+  max-width: 52ch;
+  margin: 1.75rem 0 0;
+  color: var(--ink-soft);
+}
+
+/* ---------- generic section ---------- */
+
+.section { padding: clamp(3.5rem, 8vh, 5.5rem) 0 0; }
+
+.section > .wrap > h2 {
+  font-family: var(--display);
+  font-variation-settings: "opsz" 48;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3.2vw, 2rem);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin: 0 0 1.75rem;
+  max-width: 24ch;
+}
+
+.divide { border-top: 1px solid var(--edge); margin-top: clamp(3.5rem, 8vh, 5.5rem); }
+
+/* ---------- flagship ---------- */
+
+.flag {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+.flag p { margin: 0 0 1rem; }
+.flag p:last-of-type { margin-bottom: 0; }
+
+.facts {
+  margin: 0;
+  border-top: 1px solid var(--edge);
+}
+
+.facts div {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--edge);
+}
+
+.facts dt {
+  font-family: var(--mono);
+  font-size: 0.73rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  flex: 0 0 7.5rem;
+}
+
+.facts dd {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.out {
+  display: inline-block;
+  margin-top: 1.4rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 0.15em;
+}
+
+/* ---------- side projects ---------- */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: clamp(1.25rem, 3vw, 2.25rem);
+}
+
+.card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--edge);
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--sunk);
+  transition: border-color 150ms ease, transform 150ms ease;
+}
+
+.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 10 / 7;
+  object-fit: cover;
+  object-position: top center;
+  border-bottom: 1px solid var(--edge);
+}
+
+.card-body { padding: 1.35rem 1.35rem 1.6rem; }
+
+.card h3 {
+  font-family: var(--display);
+  font-variation-settings: "opsz" 24;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+/* ---------- year spine ----------
+   The span is the claim, so the divider carries the years. */
+
+.spine {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 2rem;
+  font-family: var(--mono);
+  font-size: 0.73rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
+
+.spine .line { flex: 1; height: 1px; background: var(--rule); }
+
+.past {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 0 clamp(1.5rem, 3vw, 3rem);
+  max-width: 54rem;
+}
+
+.past dl { margin: 0; }
+
+.past div {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--edge);
+}
+
+.past dt {
+  font-family: var(--display);
+  font-variation-settings: "opsz" 18;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.past dd {
+  margin: 0.1rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.73rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+
+/* Client names belong to the role above them, never beside it. */
+.past dd.clients {
+  margin-top: 0.3rem;
+  font-family: var(--body);
+  font-size: 0.86rem;
+  letter-spacing: 0;
+  line-height: 1.45;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--edge);
+  color: var(--ink-soft);
+}
+
+.past-note {
+  margin: 1.5rem 0 0;
+  max-width: 54ch;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- stack ---------- */
+
+.stack { margin: 0; max-width: 54rem; }
+
+.stack div {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--edge);
+}
+
+.stack div:first-child { border-top: 1px solid var(--edge); }
+
+.stack dt {
+  font-family: var(--mono);
+  font-size: 0.73rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  flex: 0 0 9rem;
+}
+
+.stack dd {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 34rem) {
+  .stack div { flex-direction: column; gap: 0.3rem; }
+}
+
+/* ---------- contact ---------- */
+
+.contact { padding-bottom: clamp(4rem, 9vh, 6rem); }
+.contact p { max-width: 42ch; margin: 0 0 1.5rem; }
+
+.mail {
+  font-family: var(--display);
+  font-variation-settings: "opsz" 48;
+  font-weight: 700;
+  font-size: clamp(1.35rem, 4vw, 2.1rem);
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.08em;
+}
+
+.mail:hover { color: var(--accent); }
+
+footer {
+  border-top: 1px solid var(--edge);
+  font-family: var(--mono);
+  font-size: 0.73rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+
+footer .wrap {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding-top: 1.6rem;
+  padding-bottom: 2.5rem;
+}
+
+footer a { text-decoration: none; }
+footer a:hover { color: var(--accent); }
+
+@media (max-width: 46rem) {
+  .flag { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+  .card:hover { transform: none; }
+}
+</style>
+</head>
+<body>
+
+<main>
+
+  <header class="hero">
+    <div class="wrap">
+      <h1>James<br>Andrews</h1>
+      <p class="lede">
+        I&rsquo;ve been building web applications since 1996 &mdash;
+        <span class="turn">a regional ISP, agency work for retailers you&rsquo;ve heard
+        of, a startup I co-founded, and a SaaS platform I built the first version
+        of.</span>
+      </p>
+      <p class="sub">
+        Self-taught, and used to owning a system end to end &mdash; architecture,
+        implementation, the third-party integrations, and the Linux and AWS
+        underneath it.
+      </p>
+    </div>
+  </header>
+
+  <div class="wrap"><div class="divide"></div></div>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Current work</p>
+      <h2>Two platform generations at Openbridge.</h2>
+
+      <div class="flag">
+        <div>
+          <p>
+            I joined pre-product in 2013 and built the first version of the SaaS
+            application on my own &mdash; a Symfony API behind an Angular front end,
+            nothing to production.
+          </p>
+          <p>
+            In 2020 we replaced it. Different stack, same domain: I was the primary
+            front-end engineer on the new application and carried the business logic
+            across, walking the developer writing the Python API through the rules and
+            the reasoning already baked into the old system. Two builds, two stacks,
+            one product.
+          </p>
+          <p>
+            The front end I stood up on Angular 8 runs on Angular 21 today, upgraded
+            the whole way rather than left to rot. Currently building the CLI that
+            lets customers point their AI agents at the API.
+          </p>
+          <a class="out" href="https://www.openbridge.com/">openbridge.com &rarr;</a>
+        </div>
+
+        <dl class="facts">
+          <div><dt>Built v1</dt><dd>Symfony API, Angular front end, solo</dd></div>
+          <div><dt>Rebuild</dt><dd>Python on Lambda, Angular 8 &rarr; 21</dd></div>
+          <div><dt>Also shipped</dt><dd>Stripe billing, OAuth connection management, the move to Auth0</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divide"></div></div>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Side projects</p>
+      <h2>Two small tools for learning music without reading notation.</h2>
+
+      <div class="cards">
+
+        <a class="card" href="https://jamesmandrews.github.io/circle-of-fifths/">
+          <img src="img/circle-of-fifths.png"
+               alt="The Circle of Fifths tool: a colour-coded wheel of keys, with the chords of the selected key listed beside it.">
+          <div class="card-body">
+            <h3>Circle of Fifths</h3>
+            <p>
+              Pick a key, hear its seven chords, see how each one functions. The wheel
+              isn&rsquo;t decoration &mdash; your I, IV and V sit next to each other on
+              it, which is why three chords carry most songs.
+            </p>
+          </div>
+        </a>
+
+        <a class="card" href="https://jamesmandrews.github.io/guitar-tuner/">
+          <img src="img/guitar-tuner.png"
+               alt="The String Tuner tool: a row of string buttons with transpose and volume controls.">
+          <div class="card-body">
+            <h3>String Tuner</h3>
+            <p>
+              Tap a string, hear its pitch, tune to it. No microphone and nothing to
+              install, so it still works in a loud room &mdash; which is where pitch
+              detection tends to give up.
+            </p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divide"></div></div>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Before that</p>
+      <h2>Seventeen years of other people&rsquo;s websites.</h2>
+
+      <div class="spine">
+        <span>1996</span><span class="line"></span><span>2013</span>
+      </div>
+
+      <div class="past">
+        <dl>
+          <div>
+            <dt>The Internet Access Company</dt>
+            <dd>Webmaster &middot; 1996&ndash;97</dd>
+          </div>
+          <div>
+            <dt>Futurecom.net</dt>
+            <dd>Programmer, jr. systems administrator &middot; 1997&ndash;98</dd>
+          </div>
+          <div>
+            <dt>Aquent Partners</dt>
+            <dd>Programmer &middot; 1998&ndash;99</dd>
+            <dd class="clients">Putnam Investments, BankBoston, NYNEX, Media 100</dd>
+          </div>
+          <div>
+            <dt>Digitas</dt>
+            <dd>Programmer analyst &middot; 1999&ndash;2001</dd>
+            <dd class="clients">L.L. Bean, Neiman Marcus, FedEx, General Motors, Aetna, Green Mountain Energy</dd>
+          </div>
+        </dl>
+        <dl>
+          <div>
+            <dt>Cambridge SoundWorks</dt>
+            <dd>Programmer, systems administrator &middot; 2002&ndash;05</dd>
+          </div>
+          <div>
+            <dt>Digibug Express</dt>
+            <dd>Senior engineer &middot; 2005&ndash;08</dd>
+            <dd class="clients">Photo fulfillment and e-commerce, including the Creative Memories account</dd>
+          </div>
+          <div>
+            <dt>Givvy</dt>
+            <dd>Co-founder, engineer &middot; 2007&ndash;09</dd>
+          </div>
+          <div>
+            <dt>Contract work</dt>
+            <dd>Between staff roles &middot; 2008&ndash;12</dd>
+            <dd class="clients">3Com, iRobot, Blue Cross Blue Shield of Massachusetts, Harvard Business School Publishing, myGengo, Wellogic</dd>
+          </div>
+        </dl>
+      </div>
+
+      <p class="past-note">
+        Perl CGI on a regional ISP&rsquo;s shared servers through to e-commerce for
+        Fortune 500 retailers, plus a charitable giving platform I co-founded. Long
+        enough to have watched several approaches arrive, win, and quietly stop being
+        mentioned.
+      </p>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divide"></div></div>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">What I work in</p>
+      <dl class="stack">
+        <div>
+          <dt>Day to day</dt>
+          <dd>TypeScript &middot; Angular &middot; Python &middot; Django REST Framework &middot; AWS Lambda</dd>
+        </div>
+        <div>
+          <dt>Long familiarity</dt>
+          <dd>PHP &middot; Symfony &middot; JavaScript &middot; Node &middot; SQL &middot; HTML &middot; CSS &middot; SASS &middot; Perl</dd>
+        </div>
+        <div>
+          <dt>Infrastructure</dt>
+          <dd>AWS &middot; EC2 &middot; Linux &middot; Apache &middot; MySQL &middot; serverless &middot; system administration</dd>
+        </div>
+        <div>
+          <dt>Integration</dt>
+          <dd>REST API design &middot; OAuth &middot; Auth0 &middot; Stripe &middot; SOAP &middot; Google APIs</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divide"></div></div>
+
+  <section class="section contact">
+    <div class="wrap">
+      <p class="eyebrow">Get in touch</p>
+      <p>
+        If you want something built, or you use one of the tools and something about
+        it is wrong, I want to hear it.
+      </p>
+      <a class="mail" href="mailto:me@jamesmandrews.com">me@jamesmandrews.com</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; James Andrews</span>
+    <a href="https://www.linkedin.com/in/james-andrews-a954452">LinkedIn</a>
+    <a href="https://github.com/jamesmandrews">GitHub</a>
+  </div>
+</footer>
+
+</body>
+</html>
