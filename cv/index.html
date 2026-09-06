@@ -104,8 +104,9 @@ a:focus-visible {
   font-family: var(--display);
   font-variation-settings: "opsz" 96;
   font-weight: 700;
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
-  line-height: 0.95;
+  /* One line, scaled to fill the column rather than stacking. */
+  font-size: clamp(2.25rem, 9.5vw, 7.5rem);
+  line-height: 1;
   letter-spacing: -0.035em;
   margin: 0;
   text-wrap: balance;
@@ -113,8 +114,8 @@ a:focus-visible {
 
 .hero .lede {
   font-size: clamp(1.1rem, 2.2vw, 1.35rem);
-  line-height: 1.45;
-  max-width: 42ch;
+  line-height: 1.4;
+  max-width: 66ch;
   margin: 1.4rem 0 0;
   letter-spacing: -0.01em;
   color: var(--ink-soft);
@@ -407,7 +408,6 @@ footer a:hover { color: var(--accent); }
 
   .hero { padding: 0; }
   .hero h1 { font-size: 22pt; line-height: 1.05; letter-spacing: -0.02em; }
-  .hero h1 br { display: none; }
 
   .hero .lede {
     font-size: 10pt;
@@ -490,7 +490,7 @@ footer a:hover { color: var(--accent); }
 
   <header class="hero">
     <div class="wrap">
-      <h1>James <br>Andrews</h1>
+      <h1>James Andrews</h1>
       <p class="lede">
         <!-- Only means anything next to the home page's short version. -->
         <span class="screen-only">The long version.</span>
