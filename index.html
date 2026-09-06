@@ -243,9 +243,13 @@ a:focus-visible {
 
 /* The years before Openbridge, kept inside the same section so the work
    isn't split across the page by everything else. */
-.before {
-  margin: 2.25rem 0 0;
-  padding-top: 1.5rem;
+/* Selector has to outrank `.flag p`, which sets margin on every paragraph
+   in this column and silently won on specificity. */
+.flag p.before {
+  /* The openbridge.com link carries its own underline, so the rule below it
+     needs more clearance than a plain paragraph would. */
+  margin: 3.5rem 0 0;
+  padding-top: 1.75rem;
   border-top: 1px solid var(--edge);
   color: var(--ink-soft);
   text-wrap: pretty;
