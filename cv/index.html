@@ -1,0 +1,722 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>James Andrews — CV</title>
+<meta name="description" content="Full working history for James Andrews, building web applications since 1996.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --paper:      #fafaf8;
+  --sunk:       #f1f1ed;
+  --ink:        #15181f;
+  --ink-soft:   #565e70;
+  --accent:     #16665a;
+  --edge:       rgba(21, 24, 31, 0.11);
+  --rule:       rgba(21, 24, 31, 0.20);
+
+  --display: "Bricolage Grotesque", system-ui, sans-serif;
+  --body:    "IBM Plex Sans", system-ui, sans-serif;
+  --mono:    "IBM Plex Mono", ui-monospace, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:    #101319;
+    --sunk:     #171b23;
+    --ink:      #e9ebf0;
+    --ink-soft: #98a1b4;
+    --accent:   #5fbfa9;
+    --edge:     rgba(233, 235, 240, 0.14);
+    --rule:     rgba(233, 235, 240, 0.24);
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 3.5rem);
+}
+
+a { color: inherit; }
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.73rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 1.1rem;
+}
+
+.out {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 0.15em;
+}
+
+/* ---------- masthead ---------- */
+
+.back {
+  display: inline-block;
+  margin-top: 2.5rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.back:hover { border-bottom: 1px solid var(--accent); }
+
+.hero { padding: clamp(2.5rem, 6vh, 4rem) 0 0; }
+
+.hero h1 {
+  font-family: var(--display);
+  font-variation-settings: "opsz" 96;
+  font-weight: 700;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.hero .lede {
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  line-height: 1.45;
+  max-width: 42ch;
+  margin: 1.4rem 0 0;
+  letter-spacing: -0.01em;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+.hero .links {
+  margin: 1.75rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.hero .links a { color: var(--accent); text-decoration: none; }
+.hero .links a:hover { border-bottom: 1px solid var(--accent); }
+
+/* ---------- sections ---------- */
+
+.section { padding: clamp(3rem, 7vh, 4.5rem) 0 0; }
+
+.section > .wrap > h2 {
+  font-family: var(--display);
+  font-variation-settings: "opsz" 48;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3.2vw, 2rem);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin: 0 0 1.75rem;
+  max-width: 24ch;
+  text-wrap: balance;
+}
+
+.divide { border-top: 1px solid var(--edge); margin-top: clamp(3rem, 7vh, 4.5rem); }
+
+/* ---------- roles ---------- */
+
+.role { margin-bottom: 2.5rem; max-width: 54rem; }
+.role:last-child { margin-bottom: 0; }
+
+.role h3 {
+  font-family: var(--display);
+  font-variation-settings: "opsz" 24;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.role h3 .at { color: var(--ink-soft); font-weight: 500; }
+
+.when {
+  margin: 0.2rem 0 0.8rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+}
+
+.role > p { margin: 0 0 0.8rem; text-wrap: pretty; }
+
+.role ul { margin: 0.7rem 0 0; padding-left: 1.15rem; }
+.role li { margin-bottom: 0.4rem; text-wrap: pretty; }
+
+/* Client names belong to the role above them, never beside it. */
+.clients {
+  margin: 0.8rem 0 0;
+  padding-left: 0.8rem;
+  border-left: 2px solid var(--edge);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.era {
+  margin: 1.4rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.era + ul { margin-top: 0.45rem; }
+
+/* ---------- openbridge facts ---------- */
+
+/* Wider text column than the home page: these entries carry bullet lists,
+   not three short paragraphs. */
+.flag {
+  display: grid;
+  grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr);
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+.facts { margin: 0; border-top: 1px solid var(--edge); }
+
+/* Narrow sidebar column, so labels stack above their values rather than
+   squeezing them into four wrapped lines. */
+.facts div {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--edge);
+}
+
+.facts dt {
+  font-family: var(--mono);
+  font-size: 0.73rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 0.2rem;
+}
+
+.facts dd { margin: 0; font-size: 0.92rem; line-height: 1.5; }
+
+/* ---------- year spine ---------- */
+
+.spine {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 2rem;
+  max-width: 54rem;
+  font-family: var(--mono);
+  font-size: 0.73rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
+
+.spine .line { flex: 1; height: 1px; background: var(--rule); }
+
+/* ---------- condensed ---------- */
+
+.briefs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 0 clamp(1.5rem, 3vw, 3rem);
+  max-width: 54rem;
+}
+
+.brief { padding: 0.85rem 0; border-bottom: 1px solid var(--edge); }
+.briefs > div:first-child .brief:first-child,
+.briefs > div:nth-child(2) .brief:first-child { border-top: 1px solid var(--edge); }
+
+.brief h4 {
+  font-family: var(--display);
+  font-variation-settings: "opsz" 18;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.brief .when { margin: 0.1rem 0 0.35rem; }
+.brief p { margin: 0; font-size: 0.9rem; line-height: 1.5; color: var(--ink-soft); text-wrap: pretty; }
+
+.brief h4 a { color: var(--accent); text-decoration: none; }
+.brief h4 a:hover { border-bottom: 1px solid var(--accent); }
+
+/* ---------- stack ---------- */
+
+.stack { margin: 0; max-width: 54rem; }
+
+.stack div {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--edge);
+}
+
+.stack div:first-child { border-top: 1px solid var(--edge); }
+
+.stack dt {
+  font-family: var(--mono);
+  font-size: 0.73rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  flex: 0 0 9rem;
+}
+
+.stack dd { margin: 0; font-size: 0.95rem; line-height: 1.6; }
+
+/* ---------- quotes ---------- */
+
+.quote { margin-bottom: 2rem; max-width: 54rem; }
+.quote:last-child { margin-bottom: 0; }
+
+.who {
+  margin: 0 0 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.73rem;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+}
+
+.who strong { color: var(--ink); font-weight: 500; }
+
+blockquote {
+  margin: 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--edge);
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+footer {
+  border-top: 1px solid var(--edge);
+  font-family: var(--mono);
+  font-size: 0.73rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  margin-top: clamp(3rem, 7vh, 4.5rem);
+}
+
+footer .wrap {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding-top: 1.6rem;
+  padding-bottom: 2.5rem;
+}
+
+footer a { text-decoration: none; }
+footer a:hover { color: var(--accent); }
+
+@media (max-width: 46rem) {
+  .flag { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 34rem) {
+  .stack div { flex-direction: column; gap: 0.25rem; }
+  .stack dt { flex: none; }
+}
+
+/* ---------- print ---------- */
+
+@media print {
+  :root {
+    --paper: #fff; --sunk: #fff; --ink: #000;
+    --ink-soft: #333; --accent: #000;
+    --edge: #ccc; --rule: #999;
+  }
+  body { font-size: 10.5pt; }
+  .back, footer, .hero .links a[href^="http"] { display: none; }
+  .wrap { max-width: none; padding: 0; }
+  .section { padding-top: 1.5rem; }
+  .divide { margin-top: 1.5rem; }
+  a { text-decoration: none; }
+  .role, .brief, .quote { break-inside: avoid; }
+  h2, h3 { break-after: avoid; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap"><a class="back" href="../">&larr; jamesmandrews.com</a></div>
+
+<main>
+
+  <header class="hero">
+    <div class="wrap">
+      <h1>James<br>Andrews</h1>
+      <p class="lede">
+        The long version. Building web applications since 1996, self-taught, and used
+        to owning a system end to end &mdash; architecture, implementation, the
+        third-party integrations, and the Linux and AWS underneath it.
+      </p>
+      <p class="links">
+        <a href="mailto:me@jamesmandrews.com">me@jamesmandrews.com</a>
+        <a href="https://www.linkedin.com/in/james-andrews-a954452">LinkedIn</a>
+        <a href="https://github.com/jamesmandrews">GitHub</a>
+      </p>
+    </div>
+  </header>
+
+  <div class="wrap"><div class="divide"></div></div>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">2013 &ndash; present</p>
+      <h2>Two platform generations at Openbridge.</h2>
+
+      <div class="flag">
+        <div>
+          <article class="role">
+            <h3>Software Engineer <span class="at">&mdash; Openbridge, Inc.</span></h3>
+            <p class="when">May 2013 &ndash; present &middot; Boston, MA &middot; Remote</p>
+            <p>
+              Joined pre-product and architected, built and maintained the original
+              Openbridge SaaS application. Primary front-end engineer through the 2020
+              rebuild onto a serverless Python backend, and on the platform since,
+              across two full generations of the product.
+            </p>
+
+            <p class="era">Current platform &middot; 2020 &ndash; present</p>
+            <ul>
+              <li>Rebuilt the front-end application in Angular 8 and have kept it continuously current through Angular 21</li>
+              <li>Carried the platform&rsquo;s business logic forward from the original Symfony build, guiding the developer writing the new Python / Django REST Framework API on AWS Lambda through the domain rules, the database, and the reasoning behind existing architecture decisions</li>
+              <li>Moved the platform off self-hosted authentication onto Auth0, implementing the migration</li>
+              <li>Building the Openbridge CLI, which will let customers connect their AI agents to the Openbridge API</li>
+              <li>Maintain the front end and help maintain the Django REST Framework API</li>
+            </ul>
+
+            <p class="era">Original platform &middot; 2013 &ndash; 2020</p>
+            <ul>
+              <li>Architected, implemented and maintained v1 of the SaaS application, a Symfony 2 API with an Angular 1 front end, from nothing to production</li>
+              <li>Built OAuth connection management for the third-party APIs feeding customer pipeline services</li>
+              <li>Integrated those same third-party APIs to pull the data used to configure customer pipelines</li>
+              <li>Implemented the platform&rsquo;s billing through Stripe</li>
+            </ul>
+          </article>
+        </div>
+
+        <dl class="facts">
+          <div><dt>Built v1</dt><dd>Symfony API, Angular front end, solo</dd></div>
+          <div><dt>Rebuild</dt><dd>Python on Lambda, Angular 8 &rarr; 21</dd></div>
+          <div><dt>Also shipped</dt><dd>Stripe billing, OAuth connection management, the move to Auth0</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divide"></div></div>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Before this</p>
+      <h2>Seventeen years of other people&rsquo;s websites.</h2>
+
+      <div class="spine">
+        <span>1996</span><span class="line"></span><span>2013</span>
+      </div>
+
+      <article class="role">
+        <h3>Co-founder, Engineer <span class="at">&mdash; Givvy, Inc.</span></h3>
+        <p class="when">Oct 2007 &ndash; Sep 2009</p>
+        <p>
+          Co-founded a charitable giving platform that helped people plan and direct
+          their donations. Built on Symfony 1.0 / PHP5 with MySQL, using AJAX for
+          in-place editing rather than full page reloads.
+        </p>
+        <ul>
+          <li>Co-architected the application and contributed to design decisions on customer interaction</li>
+          <li>Integrated the Network For Good SOAP API to process user donations</li>
+          <li>Integrated the MallNetworks SOAP API so users could shop on behalf of their chosen charity</li>
+          <li>Integrated Facebook Connect to link Givvy accounts to users&rsquo; Facebook accounts</li>
+          <li>Ran the EC2 Linux infrastructure the platform was hosted on</li>
+        </ul>
+      </article>
+
+      <article class="role">
+        <h3>Senior Engineer <span class="at">&mdash; Digibug Express, Inc.</span></h3>
+        <p class="when">Feb 2005 &ndash; May 2008 &middot; Waltham, Massachusetts</p>
+        <p>
+          Developed and extended Digibug&rsquo;s online photo fulfillment services in
+          PHP4 and PHP5, covering image editing through a web interface, e-commerce, and
+          proprietary requirements for B2B partner Creative Memories.
+        </p>
+        <ul>
+          <li>Co-developed an XML REST API that let professional photographers host images on their own sites and sell them through Digibug&rsquo;s services</li>
+          <li>Managed web servers and data storage for Creative Memories</li>
+          <li>At contract end, migrated 30TB of Creative Memories image assets and website software from Digibug&rsquo;s Boston data center to Creative Memories in St. Paul, Minnesota</li>
+          <li>Migrated Digibug servers and storage to the new owners following the sale of the business</li>
+        </ul>
+      </article>
+
+      <article class="role">
+        <h3>Senior Programmer, Systems Administrator <span class="at">&mdash; Cambridge SoundWorks</span></h3>
+        <p class="when">Sep 2002 &ndash; Feb 2005 &middot; Andover, Massachusetts</p>
+        <p>E-commerce development and systems administration for a consumer audio retailer.</p>
+        <ul>
+          <li>Built new storefront functionality in Perl, HTML and CSS, and updated the site weekly with price and product changes</li>
+          <li>Built an internal email marketing server (PHP4, HTML, CSS, MySQL, Postfix) that sent 50,000+ emails weekly</li>
+          <li>Built online quizzes and promotional microsites for company contests</li>
+        </ul>
+      </article>
+
+      <article class="role">
+        <h3>Senior Programmer Analyst <span class="at">&mdash; Digitas</span></h3>
+        <p class="when">Sep 1999 &ndash; Oct 2001 &middot; Boston, Massachusetts</p>
+        <p>
+          Built HTML base templates for major retail and financial accounts, and added
+          client-requested content to those templates to build out each site. Joined via
+          predecessor agency Strategic Interactive Group in April 1999.
+        </p>
+        <ul>
+          <li>Wrote a Perl script that assembled the Green Mountain Energy site from separate HTML components</li>
+          <li>Built JavaScript features across accounts, including navigation rollovers for L.L. Bean and Aetna, and product availability changes on Neiman Marcus product pages</li>
+        </ul>
+        <p class="clients">L.L. Bean, Neiman Marcus, FedEx, General Motors, Aetna, Green Mountain Energy</p>
+      </article>
+
+      <article class="role">
+        <h3>Programmer, Jr. Systems Administrator <span class="at">&mdash; Futurecom.net</span></h3>
+        <p class="when">1997 &ndash; 1998 &middot; Foxboro, Massachusetts</p>
+        <p>
+          Wrote Perl CGI programs for clients of a small family-run ISP and consulting
+          firm, and supported the senior systems administration staff.
+        </p>
+      </article>
+
+      <article class="role">
+        <h3>Webmaster <span class="at">&mdash; The Internet Access Company (TIAC)</span></h3>
+        <p class="when">1996 &ndash; 1997 &middot; Bedford, Massachusetts</p>
+        <p>
+          Configured servers to add customer domain hosted websites across a
+          multi-server environment at a regional ISP, and provided technical support to
+          those customers, covering HTML debugging, Perl CGI debugging, and other
+          hosting issues.
+        </p>
+        <ul>
+          <li>Became the company&rsquo;s sole webmaster shortly after promotion and took on the full hosting and support workload</li>
+          <li>Wrote Perl CGI scripts for hosting customers and sourced additional scripts for the shared script library</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divide"></div></div>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Contract work</p>
+      <h2>Shorter engagements, mostly between staff roles.</h2>
+
+      <div class="briefs">
+        <div>
+          <div class="brief">
+            <h4>Aquent Partners</h4>
+            <p class="when">1998 &ndash; 99 &middot; Boston, Massachusetts</p>
+            <p>Short assignments creating and modifying client sites in HTML, with Perl CGI for contact form handling. Media 100, Putnam Investments, BankBoston, NYNEX.</p>
+          </div>
+          <div class="brief">
+            <h4>iRobot, Blue Cross Blue Shield of Massachusetts</h4>
+            <p class="when">Sep 2008 &ndash; Jun 2009 &middot; via Aquent</p>
+            <p>HTML pages for iRobot&rsquo;s government robot portfolio, and web pages plus an insurance calculator for indigo-insurance.com.</p>
+          </div>
+          <div class="brief">
+            <h4>Winter Wyman</h4>
+            <p class="when">Jun 2009 &ndash; Aug 2009</p>
+            <p>Web development for Winter Wyman clients, including CIO Interactive Council.</p>
+          </div>
+          <div class="brief">
+            <h4>3Com</h4>
+            <p class="when">Oct 2009 &ndash; Apr 2010 &middot; via Technisource</p>
+            <p>Site and HTML email changes against internal work orders, deployed through TeamSite, Interwoven OpenDeploy and Perforce.</p>
+          </div>
+        </div>
+        <div>
+          <div class="brief">
+            <h4>Harvard Business School Publishing</h4>
+            <p class="when">Apr 2010 &ndash; Jun 2010 &middot; via Addison Search</p>
+            <p>Custom designs implemented on HBSP learning portals per client, in HTML, CSS and jQuery.</p>
+          </div>
+          <div class="brief">
+            <h4>myGengo</h4>
+            <p class="when">Sep 2010 &ndash; Nov 2010</p>
+            <p>Built and maintained functionality for an online translation service (PHP, CodeIgniter, jQuery), and customized Question2Answer for planned use.</p>
+          </div>
+          <div class="brief">
+            <h4>Wellogic</h4>
+            <p class="when">Jan 2012 &ndash; Feb 2012 &middot; Waltham, Massachusetts</p>
+            <p>Development support for client-side assets in HTML5, CSS and JavaScript.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divide"></div></div>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">What I work in</p>
+      <dl class="stack">
+        <div>
+          <dt>Day to day</dt>
+          <dd>TypeScript &middot; Angular &middot; Python &middot; Django REST Framework &middot; AWS Lambda</dd>
+        </div>
+        <div>
+          <dt>Long familiarity</dt>
+          <dd>PHP &middot; Symfony &middot; JavaScript &middot; Node &middot; SQL &middot; HTML &middot; CSS &middot; SASS &middot; Perl</dd>
+        </div>
+        <div>
+          <dt>Infrastructure</dt>
+          <dd>AWS &middot; Lambda &middot; serverless &middot; EC2 &middot; Linux &middot; Apache &middot; MySQL &middot; Git &middot; system administration</dd>
+        </div>
+        <div>
+          <dt>Integration</dt>
+          <dd>REST API design &middot; SOAP &middot; OAuth &middot; Auth0 &middot; Stripe &middot; Google APIs &middot; XML &middot; JSON</dd>
+        </div>
+        <div>
+          <dt>Elsewhere</dt>
+          <dd>E-commerce &middot; WordPress &middot; Unreal Engine &middot; Unity</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divide"></div></div>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Projects</p>
+      <h2>Things I built for myself.</h2>
+
+      <div class="briefs">
+        <div>
+          <div class="brief">
+            <h4><a href="https://jamesmandrews.github.io/circle-of-fifths/">Circle of Fifths</a></h4>
+            <p class="when">jamesmandrews.github.io/circle-of-fifths</p>
+            <p>Pick a key, hear its seven chords, see how each one functions.</p>
+          </div>
+          <div class="brief">
+            <h4><a href="https://jamesmandrews.github.io/guitar-tuner/">String Tuner</a></h4>
+            <p class="when">jamesmandrews.github.io/guitar-tuner</p>
+            <p>Reference-tone tuner with transpose and volume. No microphone, nothing to install.</p>
+          </div>
+        </div>
+        <div>
+          <div class="brief">
+            <h4><a href="https://www.jamesandrewsphotography.com">James Andrews Photography</a></h4>
+            <p class="when">jamesandrewsphotography.com</p>
+            <p>Photographs, since the mid-2000s.</p>
+          </div>
+          <div class="brief">
+            <h4>Member Minder</h4>
+            <p class="when">2012 &ndash; 13 &middot; WordPress plugin</p>
+            <p>Lets a site owner control which content is visible to which non-administrative user roles.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divide"></div></div>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Education</p>
+      <div class="briefs">
+        <div>
+          <div class="brief">
+            <h4>Yamasa Institute</h4>
+            <p class="when">2002</p>
+            <p>Certificate, Japanese Language</p>
+          </div>
+        </div>
+        <div>
+          <div class="brief">
+            <h4>Montachusett Regional Vocational Technical School</h4>
+            <p class="when">1987 &ndash; 1992</p>
+            <p>High School Diploma; Electronics Trade Certificate, Electrical and Electronics Engineering</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divide"></div></div>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Recommendations</p>
+
+      <div class="quote">
+        <p class="who"><strong>Swapna R Reddy</strong> &middot; engineering leader, same team at 3Com</p>
+        <blockquote>
+          James is a detail oriented, innovative and careful perfectionist &mdash; his
+          ideas, skills, creativity and understanding of change requests makes any
+          project a dream. He has an extensive knowledge, and his open-minded approach
+          could not be overestimated. He denotes a strong experience in areas such as
+          PHP and JavaScript. His calming personality makes you feel completely
+          comfortable, even when you&rsquo;re making mistakes.
+        </blockquote>
+      </div>
+
+      <div class="quote">
+        <p class="who"><strong>Michael Smith</strong> &middot; Sr. Director of DevOps, Cartera Commerce; managed James directly</p>
+        <blockquote>
+          James&rsquo; focus on delivering timely, quality solutions to customer
+          requirements made him both a pleasure to work with and an indispensable member
+          of the engineering team at Digibug.
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="../">&larr; jamesmandrews.com</a>
+    <a href="mailto:me@jamesmandrews.com">me@jamesmandrews.com</a>
+  </div>
+</footer>
+
+</body>
+</html>

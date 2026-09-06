@@ -116,7 +116,13 @@ a:focus-visible {
   line-height: 1.15;
   margin: 0 0 1.75rem;
   max-width: 24ch;
+  /* Even line lengths, and no single word stranded on the last line. */
+  text-wrap: balance;
 }
+
+.hero h1, .hero .lede, .card h3 { text-wrap: balance; }
+
+.hero .sub, .flag p, .aside, .card p, .contact p { text-wrap: pretty; }
 
 .divide { border-top: 1px solid var(--edge); margin-top: clamp(3.5rem, 8vh, 5.5rem); }
 
@@ -221,102 +227,25 @@ a:focus-visible {
   color: var(--ink-soft);
 }
 
-/* ---------- year spine ----------
-   The span is the claim, so the divider carries the years. */
+/* A single card shouldn't stretch to the width of two. */
+.card.wide { max-width: 34rem; }
+.card.wide img { aspect-ratio: 10 / 6; object-position: center; }
 
-.spine {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin: 0 0 2rem;
-  font-family: var(--mono);
-  font-size: 0.73rem;
-  letter-spacing: 0.06em;
-  color: var(--ink-soft);
-}
-
-.spine .line { flex: 1; height: 1px; background: var(--rule); }
-
-.past {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-  gap: 0 clamp(1.5rem, 3vw, 3rem);
-  max-width: 54rem;
-}
-
-.past dl { margin: 0; }
-
-.past div {
-  padding: 0.7rem 0;
-  border-bottom: 1px solid var(--edge);
-}
-
-.past dt {
-  font-family: var(--display);
-  font-variation-settings: "opsz" 18;
-  font-weight: 500;
-  font-size: 1rem;
-  letter-spacing: -0.01em;
-}
-
-.past dd {
-  margin: 0.1rem 0 0;
-  font-family: var(--mono);
-  font-size: 0.73rem;
-  letter-spacing: 0.04em;
-  color: var(--ink-soft);
-}
-
-/* Client names belong to the role above them, never beside it. */
-.past dd.clients {
-  margin-top: 0.3rem;
-  font-family: var(--body);
-  font-size: 0.86rem;
-  letter-spacing: 0;
-  line-height: 1.45;
-  padding-left: 0.75rem;
-  border-left: 2px solid var(--edge);
-  color: var(--ink-soft);
-}
-
-.past-note {
-  margin: 1.5rem 0 0;
-  max-width: 54ch;
-  font-size: 0.92rem;
-  color: var(--ink-soft);
-}
-
-/* ---------- stack ---------- */
-
-.stack { margin: 0; max-width: 54rem; }
-
-.stack div {
-  display: flex;
-  gap: 1rem;
-  align-items: baseline;
-  padding: 0.8rem 0;
-  border-bottom: 1px solid var(--edge);
-}
-
-.stack div:first-child { border-top: 1px solid var(--edge); }
-
-.stack dt {
-  font-family: var(--mono);
-  font-size: 0.73rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  flex: 0 0 9rem;
-}
-
-.stack dd {
+.aside {
   margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  max-width: 58ch;
+  color: var(--ink-soft);
+  text-wrap: pretty;
 }
 
-@media (max-width: 34rem) {
-  .stack div { flex-direction: column; gap: 0.3rem; }
+/* The years before Openbridge, kept inside the same section so the work
+   isn't split across the page by everything else. */
+.before {
+  margin: 2.25rem 0 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--edge);
+  color: var(--ink-soft);
+  text-wrap: pretty;
 }
 
 /* ---------- contact ---------- */
@@ -374,15 +303,13 @@ footer a:hover { color: var(--accent); }
     <div class="wrap">
       <h1>James<br>Andrews</h1>
       <p class="lede">
-        I&rsquo;ve been building web applications since 1996 &mdash;
-        <span class="turn">a regional ISP, agency work for retailers you&rsquo;ve heard
-        of, a startup I co-founded, and a SaaS platform I built the first version
-        of.</span>
+        I&rsquo;ve been building web applications since 1996,
+        <span class="turn">playing music since the eighties, and taking photographs
+        since the mid-2000s.</span>
       </p>
       <p class="sub">
-        Self-taught, and used to owning a system end to end &mdash; architecture,
-        implementation, the third-party integrations, and the Linux and AWS
-        underneath it.
+        Self-taught at all three. It&rsquo;s been the same habit every time &mdash; get
+        curious, build the thing badly, keep at it until it isn&rsquo;t bad.
       </p>
     </div>
   </header>
@@ -391,7 +318,7 @@ footer a:hover { color: var(--accent); }
 
   <section class="section">
     <div class="wrap">
-      <p class="eyebrow">Current work</p>
+      <p class="eyebrow">Work</p>
       <h2>Two platform generations at Openbridge.</h2>
 
       <div class="flag">
@@ -399,7 +326,8 @@ footer a:hover { color: var(--accent); }
           <p>
             I joined pre-product in 2013 and built the first version of the SaaS
             application on my own &mdash; a Symfony API behind an Angular front end,
-            nothing to production.
+            nothing to production. Architecture, implementation, the third-party
+            integrations, and the Linux and AWS underneath it.
           </p>
           <p>
             In 2020 we replaced it. Different stack, same domain: I was the primary
@@ -414,6 +342,15 @@ footer a:hover { color: var(--accent); }
             lets customers point their AI agents at the API.
           </p>
           <a class="out" href="https://www.openbridge.com/">openbridge.com &rarr;</a>
+
+          <p class="before">
+            Before this: Perl CGI on a regional ISP&rsquo;s shared servers, agency work
+            for L.L.&nbsp;Bean, Neiman Marcus, FedEx and General Motors, e-commerce for
+            a consumer audio retailer, and a charitable giving platform I co-founded.
+            Long enough to have watched several approaches arrive, win, and quietly
+            stop being mentioned.
+          </p>
+          <a class="out" href="cv/">The long version &mdash; full CV &rarr;</a>
         </div>
 
         <dl class="facts">
@@ -429,8 +366,8 @@ footer a:hover { color: var(--accent); }
 
   <section class="section">
     <div class="wrap">
-      <p class="eyebrow">Side projects</p>
-      <h2>Two small tools for learning music without reading notation.</h2>
+      <p class="eyebrow">Tools</p>
+      <h2>Things I built for myself.</h2>
 
       <div class="cards">
 
@@ -468,88 +405,20 @@ footer a:hover { color: var(--accent); }
 
   <section class="section">
     <div class="wrap">
-      <p class="eyebrow">Before that</p>
-      <h2>Seventeen years of other people&rsquo;s websites.</h2>
+      <p class="eyebrow">Photography</p>
+      <h2>The other thing nobody taught me.</h2>
 
-      <div class="spine">
-        <span>1996</span><span class="line"></span><span>2013</span>
-      </div>
-
-      <div class="past">
-        <dl>
-          <div>
-            <dt>The Internet Access Company</dt>
-            <dd>Webmaster &middot; 1996&ndash;97</dd>
-          </div>
-          <div>
-            <dt>Futurecom.net</dt>
-            <dd>Programmer, jr. systems administrator &middot; 1997&ndash;98</dd>
-          </div>
-          <div>
-            <dt>Aquent Partners</dt>
-            <dd>Programmer &middot; 1998&ndash;99</dd>
-            <dd class="clients">Putnam Investments, BankBoston, NYNEX, Media 100</dd>
-          </div>
-          <div>
-            <dt>Digitas</dt>
-            <dd>Programmer analyst &middot; 1999&ndash;2001</dd>
-            <dd class="clients">L.L. Bean, Neiman Marcus, FedEx, General Motors, Aetna, Green Mountain Energy</dd>
-          </div>
-        </dl>
-        <dl>
-          <div>
-            <dt>Cambridge SoundWorks</dt>
-            <dd>Programmer, systems administrator &middot; 2002&ndash;05</dd>
-          </div>
-          <div>
-            <dt>Digibug Express</dt>
-            <dd>Senior engineer &middot; 2005&ndash;08</dd>
-            <dd class="clients">Photo fulfillment and e-commerce, including the Creative Memories account</dd>
-          </div>
-          <div>
-            <dt>Givvy</dt>
-            <dd>Co-founder, engineer &middot; 2007&ndash;09</dd>
-          </div>
-          <div>
-            <dt>Contract work</dt>
-            <dd>Between staff roles &middot; 2008&ndash;12</dd>
-            <dd class="clients">3Com, iRobot, Blue Cross Blue Shield of Massachusetts, Harvard Business School Publishing, myGengo, Wellogic</dd>
-          </div>
-        </dl>
-      </div>
-
-      <p class="past-note">
-        Perl CGI on a regional ISP&rsquo;s shared servers through to e-commerce for
-        Fortune 500 retailers, plus a charitable giving platform I co-founded. Long
-        enough to have watched several approaches arrive, win, and quietly stop being
-        mentioned.
-      </p>
-    </div>
-  </section>
-
-  <div class="wrap"><div class="divide"></div></div>
-
-  <section class="section">
-    <div class="wrap">
-      <p class="eyebrow">What I work in</p>
-      <dl class="stack">
-        <div>
-          <dt>Day to day</dt>
-          <dd>TypeScript &middot; Angular &middot; Python &middot; Django REST Framework &middot; AWS Lambda</dd>
+      <a class="card wide" href="https://www.jamesandrewsphotography.com">
+        <img src="img/photography.png"
+             alt="jamesandrewsphotography.com: a dark gallery site showing a white Bali myna perched among green foliage.">
+        <div class="card-body">
+          <h3>James Andrews Photography</h3>
+          <p>
+            What&rsquo;s online so far is a fraction of it &mdash; the rest is still
+            sitting on a drive waiting for me to get to it.
+          </p>
         </div>
-        <div>
-          <dt>Long familiarity</dt>
-          <dd>PHP &middot; Symfony &middot; JavaScript &middot; Node &middot; SQL &middot; HTML &middot; CSS &middot; SASS &middot; Perl</dd>
-        </div>
-        <div>
-          <dt>Infrastructure</dt>
-          <dd>AWS &middot; EC2 &middot; Linux &middot; Apache &middot; MySQL &middot; serverless &middot; system administration</dd>
-        </div>
-        <div>
-          <dt>Integration</dt>
-          <dd>REST API design &middot; OAuth &middot; Auth0 &middot; Stripe &middot; SOAP &middot; Google APIs</dd>
-        </div>
-      </dl>
+      </a>
     </div>
   </section>
 
@@ -572,7 +441,9 @@ footer a:hover { color: var(--accent); }
   <div class="wrap">
     <span>&copy; James Andrews</span>
     <a href="https://www.linkedin.com/in/james-andrews-a954452">LinkedIn</a>
+    <a href="cv/">CV</a>
     <a href="https://github.com/jamesmandrews">GitHub</a>
+    <a href="https://www.jamesandrewsphotography.com">Photography</a>
   </div>
 </footer>
 
