@@ -275,6 +275,17 @@ a:focus-visible {
 .brief .when { margin: 0.1rem 0 0.35rem; }
 .brief p { margin: 0; font-size: 0.9rem; line-height: 1.5; color: var(--ink-soft); text-wrap: pretty; }
 
+.url {
+  margin: 0.1rem 0 0.35rem;
+  font-family: var(--mono);
+  font-size: 0.73rem;
+  letter-spacing: 0.03em;
+  word-break: break-word;
+}
+
+.url a { color: var(--accent); text-decoration: none; }
+.url a:hover { border-bottom: 1px solid var(--accent); }
+
 .brief h4 a { color: var(--accent); text-decoration: none; }
 .brief h4 a:hover { border-bottom: 1px solid var(--accent); }
 
@@ -357,20 +368,117 @@ footer a:hover { color: var(--accent); }
 
 /* ---------- print ---------- */
 
+.print-only { display: none; }
+
 @media print {
+
+  /* Every screen size on this page is clamp()-based and therefore
+     viewport-relative. On paper there is no viewport, so all of them have to
+     be restated in absolute units or the first page is just the name. */
+
+  @page { margin: 15mm 14mm; }
+
   :root {
     --paper: #fff; --sunk: #fff; --ink: #000;
     --ink-soft: #333; --accent: #000;
-    --edge: #ccc; --rule: #999;
+    --edge: #bbb; --rule: #888;
   }
-  body { font-size: 10.5pt; }
-  .back, footer, .hero .links a[href^="http"] { display: none; }
+
+  html, body { background: #fff; }
+
+  body {
+    font-size: 9.5pt;
+    line-height: 1.4;
+    orphans: 3;
+    widows: 3;
+  }
+
+  .screen-only, .back, footer { display: none !important; }
+  .print-only { display: block; }
+
+  /* Email is the only contact detail worth paper. */
+  .hero .links a[href^="http"] { display: none; }
+
   .wrap { max-width: none; padding: 0; }
-  .section { padding-top: 1.5rem; }
-  .divide { margin-top: 1.5rem; }
-  a { text-decoration: none; }
-  .role, .brief, .quote { break-inside: avoid; }
-  h2, h3 { break-after: avoid; }
+
+  a { text-decoration: none; color: #000; }
+
+  /* --- masthead --- */
+
+  .hero { padding: 0; }
+  .hero h1 { font-size: 22pt; line-height: 1.05; letter-spacing: -0.02em; }
+  .hero h1 br { display: none; }
+
+  .hero .lede {
+    font-size: 10pt;
+    line-height: 1.4;
+    max-width: none;
+    margin-top: 0.35rem;
+  }
+
+  .hero .links {
+    margin-top: 0.4rem;
+    font-size: 8.5pt;
+    display: block;
+  }
+
+  /* --- section rhythm --- */
+
+  .section { padding-top: 0.9rem; }
+  .divide { margin-top: 0.9rem; border-top-color: #bbb; }
+
+  .eyebrow { font-size: 7.5pt; margin-bottom: 0.3rem; letter-spacing: 0.12em; }
+
+  .section > .wrap > h2 {
+    font-size: 13pt;
+    margin-bottom: 0.7rem;
+    max-width: none;
+  }
+
+  /* --- entries --- */
+
+  .role { margin-bottom: 0.9rem; max-width: none; }
+  .role h3 { font-size: 11pt; }
+  .when { font-size: 8pt; margin-bottom: 0.3rem; }
+  .role > p { margin-bottom: 0.35rem; }
+  .role ul { margin-top: 0.3rem; }
+  .role li { margin-bottom: 0.15rem; }
+  .era { margin-top: 0.5rem; font-size: 7.5pt; }
+  .clients { font-size: 8.5pt; margin-top: 0.35rem; }
+
+  /* The facts panel repeats what the bullets already say, and in one column
+     it just pushes the role down the page. */
+  .flag { display: block; }
+  .facts { display: none; }
+
+  /* --- condensed --- */
+
+  .briefs { max-width: none; gap: 0 8mm; }
+  .brief { padding: 0.35rem 0; }
+  .brief h4 { font-size: 9.5pt; }
+  .brief .when { margin: 0 0 0.15rem; }
+  .url { font-size: 7.5pt; margin: 0 0 0.15rem; }
+  .brief p { font-size: 8.5pt; line-height: 1.35; }
+
+  /* --- stack --- */
+
+  .stack { max-width: none; }
+  .stack div { padding: 0.3rem 0; }
+  .stack dt { flex-basis: 26mm; font-size: 7.5pt; }
+  .stack dd { font-size: 9pt; }
+
+  /* --- spine and quotes --- */
+
+  .spine { margin-bottom: 0.7rem; max-width: none; font-size: 7.5pt; }
+  .quote { margin-bottom: 0.6rem; max-width: none; }
+  .who { font-size: 7.5pt; margin-bottom: 0.25rem; }
+  blockquote { font-size: 8.5pt; line-height: 1.35; }
+
+  /* --- pagination --- */
+
+  .role, .brief, .quote, .stack div, .facts div { break-inside: avoid; }
+  h2, h3, h4, .eyebrow, .era { break-after: avoid; }
+  .section { break-inside: auto; }
 }
 </style>
 </head>
@@ -382,9 +490,11 @@ footer a:hover { color: var(--accent); }
 
   <header class="hero">
     <div class="wrap">
-      <h1>James<br>Andrews</h1>
+      <h1>James <br>Andrews</h1>
       <p class="lede">
-        The long version. Building web applications since 1996, self-taught, and used
+        <!-- Only means anything next to the home page's short version. -->
+        <span class="screen-only">The long version.</span>
+        Building web applications since 1996, self-taught, and used
         to owning a system end to end &mdash; architecture, implementation, the
         third-party integrations, and the Linux and AWS underneath it.
       </p>
@@ -648,19 +758,19 @@ footer a:hover { color: var(--accent); }
         <div>
           <div class="brief">
             <h4><a href="https://jamesmandrews.github.io/circle-of-fifths/">Circle of Fifths</a></h4>
-            <p class="when">jamesmandrews.github.io/circle-of-fifths</p>
+            <p class="url"><a href="https://jamesmandrews.github.io/circle-of-fifths/">https://jamesmandrews.github.io/circle-of-fifths</a></p>
             <p>Pick a key, hear its seven chords, see how each one functions.</p>
           </div>
           <div class="brief">
             <h4><a href="https://jamesmandrews.github.io/guitar-tuner/">String Tuner</a></h4>
-            <p class="when">jamesmandrews.github.io/guitar-tuner</p>
+            <p class="url"><a href="https://jamesmandrews.github.io/guitar-tuner/">https://jamesmandrews.github.io/guitar-tuner</a></p>
             <p>Reference-tone tuner with transpose and volume. No microphone, nothing to install.</p>
           </div>
         </div>
         <div>
           <div class="brief">
             <h4><a href="https://www.jamesandrewsphotography.com">James Andrews Photography</a></h4>
-            <p class="when">jamesandrewsphotography.com</p>
+            <p class="url"><a href="https://www.jamesandrewsphotography.com">https://www.jamesandrewsphotography.com</a></p>
             <p>Photographs, since the mid-2000s.</p>
           </div>
           <div class="brief">
