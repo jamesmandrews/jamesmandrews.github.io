@@ -81,16 +81,19 @@ a:focus-visible {
   font-family: var(--display);
   font-variation-settings: "opsz" 96;
   font-weight: 700;
-  font-size: clamp(2.75rem, 9vw, 5.75rem);
-  line-height: 0.95;
+  /* One line, scaled to fill the column rather than stacking. */
+  font-size: clamp(2.25rem, 9.5vw, 7.5rem);
+  line-height: 1;
   letter-spacing: -0.035em;
   margin: 0;
 }
 
 .hero .lede {
   font-size: clamp(1.2rem, 2.6vw, 1.65rem);
-  line-height: 1.4;
-  max-width: 28ch;
+  line-height: 1.35;
+  /* Wide measure on purpose: two long lines read as a statement and use the
+     full column, where four short ones left the right-hand side empty. */
+  max-width: 62ch;
   margin: 1.6rem 0 0;
   letter-spacing: -0.012em;
 }
@@ -98,7 +101,7 @@ a:focus-visible {
 .hero .lede .turn { color: var(--ink-soft); }
 
 .hero .sub {
-  max-width: 52ch;
+  max-width: 72ch;
   margin: 1.75rem 0 0;
   color: var(--ink-soft);
 }
@@ -301,7 +304,7 @@ footer a:hover { color: var(--accent); }
 
   <header class="hero">
     <div class="wrap">
-      <h1>James<br>Andrews</h1>
+      <h1>James Andrews</h1>
       <p class="lede">
         I&rsquo;ve been building web applications since 1996,
         <span class="turn">playing music since the eighties, and taking photographs
