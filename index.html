@@ -106,6 +106,31 @@ a:focus-visible {
   color: var(--ink-soft);
 }
 
+/* ---------- philosophy ---------- */
+
+.creed p {
+  max-width: 58ch;
+  margin: 0 0 1.15rem;
+  text-wrap: pretty;
+}
+
+.creed p:last-child { margin-bottom: 0; }
+
+/* The opening and closing lines carry the whole argument, so they are set
+   larger and everything between them reads as the working-out. Kept under
+   the hero lede's size so the masthead still leads the page. */
+.creed p.open,
+.creed p.close {
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  line-height: 1.4;
+  letter-spacing: -0.012em;
+  max-width: 48ch;
+  text-wrap: balance;
+}
+
+.creed p.open  { margin-bottom: 2rem; }
+.creed p.close { margin-top: 2rem; }
+
 /* ---------- generic section ---------- */
 
 .section { padding: clamp(3.5rem, 8vh, 5.5rem) 0 0; }
@@ -351,6 +376,75 @@ footer a:hover { color: var(--accent); }
       </p>
     </div>
   </header>
+
+  <div class="wrap"><div class="divide"></div></div>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Philosophy</p>
+      <h2>What I think.</h2>
+
+      <div class="creed">
+        <p class="open">
+          I owe myself a good life. Everyone else should get the chance to build
+          one too.
+        </p>
+
+        <p>
+          My life is mine. I decide how to live it, and the only limit I accept is
+          that my choices shouldn&rsquo;t take that same freedom from anyone else.
+        </p>
+
+        <p>
+          I don&rsquo;t need meaning handed to me by a religion or by anyone&rsquo;s
+          approval. I find it in whatever I&rsquo;ve decided matters to me. In
+          finishing what I said I&rsquo;d finish. In making something because I wanted
+          it to exist, and in being some use to people while I&rsquo;m here.
+        </p>
+
+        <p>
+          Most people are decent. When I can make someone&rsquo;s life easier I
+          usually will. Nobody is owed it &mdash; I do it because I want to be that
+          kind of person. But I&rsquo;m not required to wreck myself to prove the
+          point.
+        </p>
+
+        <p>
+          I forgive people when I decide to. Forgiveness isn&rsquo;t trust. Trust gets
+          rebuilt by what someone does next, if it gets rebuilt at all.
+        </p>
+
+        <p>
+          I get things wrong. I try not to beat myself up over decisions made without
+          information I didn&rsquo;t have yet, and I try not to pretend the damage was
+          nothing. Some regrets are worth keeping. They make me better.
+        </p>
+
+        <p>
+          We owe each other something too. No one should go hungry, lose their home,
+          miss out on school, or be ruined by getting sick. People who can contribute
+          should. People who genuinely can&rsquo;t should still live with dignity. The
+          more you have, the more you can give, and the more you should.
+        </p>
+
+        <p>
+          I don&rsquo;t know if there&rsquo;s a God, or whether anything comes after
+          this. I&rsquo;m fine not knowing. I don&rsquo;t need a reward waiting at the
+          end to be decent now. If someone is keeping score, I hope they were paying
+          attention. &#128516;
+        </p>
+
+        <p>
+          A good life doesn&rsquo;t have to be an easy one. There will be struggle and
+          failure and loss. What matters is that it was mine &mdash; that I chased what
+          I cared about, didn&rsquo;t stand in anyone else&rsquo;s way, and left a few
+          people better off for having known me.
+        </p>
+
+        <p class="close">I hope I&rsquo;m remembered kindly.</p>
+      </div>
+    </div>
+  </section>
 
   <div class="wrap"><div class="divide"></div></div>
 
